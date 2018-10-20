@@ -1,19 +1,25 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+
+    <!-- 权限按钮 -->
+    <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击这里开始旅程 </button>
+
+    <!-- 展示 -->
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <text class="userinfo-gender">{{userInfo.gender}}</text>
       <text class="userinfo-province">{{userInfo.province}}</text>
       <text class="userinfo-city">{{userInfo.city}}</text>
       <text class="userinfo-country">{{userInfo.country}}</text>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="userinfo-openid">openid : {{app.globalData.openid}}</text>
     </block>
   </view>
 
-<!-- footer -->
-<include src="/pages/navigator/footer.wxml" />
+  <!-- footer -->
+  <include src="/pages/navigator/footer.wxml" />
 
 </view>

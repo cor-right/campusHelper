@@ -20,17 +20,17 @@
 				<navigator class="navigator" url="/pages/orderlist/orderlist?status=1">
 					<image src="{{staticResPath}}/image/mobile/uniquecenter/btn_pay.png">
 					</image>
-					<text>我要内推</text>
+					<text>求内推</text>
 				</navigator>
 				<navigator class="navigator" url="/pages/orderlist/orderlist?status=2">
 					<image src="{{staticResPath}}/image/mobile/uniquecenter/btn_fahuo.png">
 					</image>
-					<text>我的内推</text>
+					<text>帮内推</text>
 				</navigator>
-				<navigator class="navigator" url="/pages/orderlist/orderlist?status=3">
-					<image src="{{staticResPath}}/image/mobile/uniquecenter/btn_shouhuo.png">
+        <navigator class="navigator" url="/pages/orderlist/orderlist?status=2">
+					<image src="{{staticResPath}}/image/mobile/uniquecenter/btn_fahuo.png">
 					</image>
-					<text>我的发布</text>
+					<text>新消息</text>
 				</navigator>
 				<navigator class="navigator" url="/pages/orderlist/orderlist?status=7,8,9">
 					<image src="{{staticResPath}}/image/mobile/uniquecenter/btn_fuwu.png">
@@ -69,6 +69,13 @@
 			<navigator style='color:{{menusList["address"] ? menusList["address"].defColor  : ""}}' class="listli" url="/pages/uniquecenter/addresslist" wx:if="{{listliShow[4]}}" wx:if="{{userCentre.address}}">
       <image src="{{userImagePath + menusList['address'].cusIco}}" wx:if="{{menusList['address'] && menusList['address'].cusIco}}"></image>
 				<image src="{{staticResPath}}/image/mobile/uniquecenter/address.png" wx:else></image>{{menusList['address'] && menusList['address'].newName || "个人信息"}}
+				<span><image src="{{staticResPath}}/image/mobile/uniquecenter/arrow.png"></image></span>
+			</navigator>
+
+      <!-- 个人信息选项卡 -->
+			<navigator style='color:{{menusList["address"] ? menusList["address"].defColor  : ""}}' class="listli" url="/pages/uniquecenter/addresslist" wx:if="{{listliShow[4]}}" wx:if="{{userCentre.address}}">
+      <image src="{{userImagePath + menusList['address'].cusIco}}" wx:if="{{menusList['address'] && menusList['address'].cusIco}}"></image>
+				<image src="{{staticResPath}}/image/mobile/uniquecenter/address.png" wx:else></image>{{menusList['address'] && menusList['address'].newName || "系统设置"}}
 				<span><image src="{{staticResPath}}/image/mobile/uniquecenter/arrow.png"></image></span>
 			</navigator>
 
