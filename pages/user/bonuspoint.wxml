@@ -1,0 +1,79 @@
+<import src="../template/form.wxml"/>
+<wxs src="../../utils/comm.wxs" module="mTool" />
+<!--form.wxml-->
+<view class="theme-wrapper app-theme-{{app.globalData.themeId}}">
+<view class="myJifenData">
+	<view class="jifen_title">可用积分</view>
+	<view class="jifen_value main-color">{{totalJifen}}</view>
+</view>
+
+<scroll-view scroll-y class="container">
+    <modal hidden="{{hiddenmodalput}}" title="积分规则" confirm-text="确定" bindcancel="cancel" bindconfirm="confirm" no-cancel="true">   
+      <text wx:if="{{isSignOk}}">每日签到可获得{{signGet}}积分\n</text> 
+      <text wx:if="{{isCosumeOk}}">每消费{{consumePreval}}元送{{consumeGet}}积分\n</text>
+      <text wx:if="{{isCommentOk}}">每评论{{commentPreval}}个商品送{{commentGet}}积分\n</text>
+      <text wx:if="{{isRecommendOk}}">成功召唤{{recommendPreval}}个新用户，送{{recommendGet}}积分，如被邀者不是新用户，不能获得积分\n</text>
+      <text>使用积分：{{integralKey}}积分\t=\t{{mTool.fToY(integralVal)}}元</text>
+    </modal> 
+  <view class='sign'>
+    <view class='signTitle'>
+      <text class='signText main-color'>|\t任务中心</text>
+      <view class='signHelp zan-icon zan-icon-question' bindtap='showDetailBox'></view>
+    </view>
+    <view class='signItem' wx:if="{{isSignOk}}">
+      <view class='signImage'>
+        <image class='signScore zan-icon zan-icon-sign'></image>
+        <text>签到领积分</text>
+      </view>
+      <view class='signButton' bindtap='toSign'>
+        <button class="main-color-bg">签到</button>
+      </view>
+    </view>
+    <view class='signItem' wx:if="{{isCosumeOk}}">
+      <view class='signImage'>
+        <image class='signScore zan-icon zan-icon-shopping-cart'></image>
+        <text>购物领积分</text>
+      </view>
+      <view class='signButton' bindtap='toShopping'>
+        <button class="main-color-bg">去购物</button>
+      </view>
+    </view>
+    <view class='signItem' wx:if="{{isCommentOk}}">
+      <view class='signImage '>
+        <image class='signScore zan-icon zan-icon-edit-data'></image>
+        <text>评价领积分</text>
+      </view>
+      <view class='signButton' bindtap='toJudge'>
+        <button class="main-color-bg">去评价</button>
+      </view>
+    </view>
+    <view class='signItem' wx:if="{{isRecommendOk}}">
+      <view class='signImage '>
+        <image class='signScore zan-icon zan-icon-add'></image>
+        <text>召唤领积分</text>
+      </view>
+      <view class='signButton'>
+        <button open-type="share" class="main-color-bg">去召唤</button>
+      </view>
+    </view>
+  </view>
+	<view class="jifen_list">
+		<block wx:if="{{list.length>0}}">
+			<block wx:for="{{list}}" wx:key="id">
+				<view class="jifen_item">
+					<view class="jifen_time_box">
+						<view class="jifen_time_title">{{mTool.integralSource(item.source)}}</view>
+						<view class="jifen_time_val">{{item.createTime}}</view>
+					</view>
+					<view class="jifen_val">{{item.type == 1? "+" : "-" }}{{item.integral}}</view>
+				</view>
+			</block>
+		</block>
+		<block wx:elif="{{getDataFlag}}">
+			<view style="height: 200rpx;text-align: center;line-height: 200rpx;">暂时没有积分记录</view>
+		</block>
+	</view>
+</scroll-view>
+<include src="/pages/template/copyright.wxml"/>
+<include src="/pages/template/authModal.wxml"/>
+</view>

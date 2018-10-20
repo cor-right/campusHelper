@@ -1,0 +1,113 @@
+page{background: #ededed;}
+.version{
+	height: 180rpx;
+	background: #fff;
+	padding: 30rpx;
+	box-sizing: border-box;
+	font-size: 28rpx;
+}
+.version .version_title{
+	color: #7d7d7d;
+	text-align: center;
+}
+.version .version_no{
+	color: #000;
+	text-align: center;
+  font-family: "Times New Roman";
+	font-size: 60rpx;
+	line-height: 80rpx;
+}
+.container{
+	font-size: 28rpx;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding-top: 190rpx;
+}
+.jifen_list{
+	background: #fff;
+	padding: 0 20rpx;
+}
+.jifen_list .jifen_item{
+	border-top: 2rpx solid #ededed;
+	height: 110rpx;
+}
+.jifen_list .jifen_item:first-child{
+	margin-top:none;
+}
+.jifen_list .jifen_item .jifen_time_box{
+	float: left;
+}
+.jifen_list .jifen_item .jifen_time_box .jifen_time_title{
+	font-size: 28rpx;
+	padding-top: 20rpx;
+	line-height: 40rpx;
+}
+.jifen_list .jifen_item .jifen_time_box .jifen_time_val{
+	font-size: 24rpx;
+	color: #7d7d7d;
+	line-height: 30rpx;
+}
+.jifen_list .jifen_item .jifen_val{
+	float: right;
+	line-height: 100rpx;
+	font-size: 32rpx;
+}
+.textleft{text-align: left;}
+.textcenter{text-align: center;}
+.textright{text-align: right;}
+.sign{
+  	background: #fff;
+	  padding: 0 20rpx;
+    border-bottom: 10rpx solid #ededed;
+}
+.signTitle{
+  border-top:2rpx solid #ededed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.signText{
+  min-height: 80rpx;
+  color: #d93925;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.signHelp{
+  width: 45rpx;
+  height: 45rpx;
+  /* border: 1rpx solid #ededed; */
+  border-radius: 50%;
+  
+  
+}
+.signItem{
+  min-height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  border-top: 2rpx solid #ededed;
+}
+.signScore{
+  width: 35rpx;
+  height: 40rpx;
+}
+.signImage{
+  display: flex;
+  align-items: center;
+}
+.signButton{
+  display: flex;
+  align-items: center;
+  
+}
+.signButton button{
+  min-width: 130rpx;
+  height: 50rpx;
+  background-color: #d93925;
+  font-size: 22rpx;
+  color: #fff;
+  line-height: 50rpx;
+}

@@ -1,0 +1,35 @@
+<wxs module="m1">
+  var getFixedMoney = function(money) {
+    if (typeof(money) !== "undefined") {
+      return Number(money / 100).toFixed(2);
+    } else {
+      return 0;
+    }
+  }
+  module.exports.getFixedMoney = getFixedMoney;
+</wxs>
+<template name="couponListTpl">
+<view class="modal-backdrop announce-backdrop" bindtap='handleCouponModalClose' wx:if="{{showCouponList}}"></view>
+  <view class="coupon-info-modal" wx:if="{{showCouponList}}" bindtap="handleCouponModalTap">
+    <view class="title">店铺优惠</view>
+    <scroll-view class="coupon-list" scroll-y="true">
+      <view class="coupon" bindtap='handleCouponSelect' data-id="{{coupon.id}}" wx:for="{{couponList}}" wx:for-item="coupon" wx:key="{{coupon.id}}">
+        <text class="coupon-text" wx:if="{{coupon.type == 2}}">{{coupon.discount/10}}折：{{coupon.title}}</text>
+        <text class="coupon-text" wx:elif="{{coupon.type == 4}}">{{coupon.busiName}}：{{coupon.title}}</text>
+        <text class="coupon-text" wx:else>{{m1.getFixedMoney(coupon.money||0)}}元：{{coupon.title}}</text>
+        <view class="fright">
+          <view wx:if="{{coupon.id == selectedCoupon.id}}" class="zan-icon zan-icon-checked main-color"></view>
+          <view wx:else class="zan-icon zan-icon-check" style="color:#ccc;"></view>
+        </view>
+      </view>
+      <view class="coupon" data-id="-1" bindtap='handleCouponSelect'>
+        <text>不使用优惠</text>
+        <view class="fright">
+          <view wx:if="{{!selectedCoupon}}" class="zan-icon zan-icon-checked main-color"></view>
+          <view wx:else class="zan-icon zan-icon-check" style="color:#ccc;"></view>
+        </view>
+      </view>
+    </scroll-view>
+    <button data-action="closeModal" class="main-color-bg zan-btn zan-btn--large zan-btn--danger">关闭</button>
+  </view>
+  </template>

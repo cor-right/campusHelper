@@ -1,0 +1,59 @@
+<template name="offlineOrderListTpl">
+<wxs module="m1">
+  var getFixedMoney = function(money) {
+    if (typeof(money) !== "undefined") {
+      return Number(money / 100).toFixed(2);
+    } else {
+      return 0;
+    }
+  }
+  module.exports.getFixedMoney = getFixedMoney;
+</wxs>
+<block wx:if="{{orderList.length>0}}">
+	<!-- 循环订单列表开始 -->
+	<block wx:for="{{orderList}}" wx:key="{{id}}">
+		<view class="order-list j-order-list">
+			<view class="order-header">
+				<view class="header-left">{{item.createTime}}</view>
+				<view class="header-right">
+					<!-- 判断状态开始 -->
+					<block wx:if="{{item.payStatus==1}}">
+						<view class="header-txt">已完成</view>
+					</block>
+					<block wx:elif="{{item.payStatus==0}}">
+						<view class="header-txt">未支付</view>
+					</block>
+					<block wx:elif="{{item.payStatus==5}}">
+						<view class="header-txt">已关闭</view>
+					</block>
+					<!-- 判断状态结束 -->
+				</view>
+			</view>
+			<!-- 循环订单里不同商品开始 -->
+
+      <view class="order-item-list offline-item-list">
+        <view class="order-content">
+          <navigator class="order-img" url="/pages/offline/orderdetail?id={{item.id}}">
+            <image src="{{staticResPath}}/image/mobile/order/offline_shop_icon.png?v=3"></image>
+          </navigator>
+          <navigator class="order-left" url="/pages/offline/orderdetail?id={{item.id}}">
+            <text class="order-name">当面付订单</text>
+            <text class="order-spec"></text>
+          </navigator>
+          <view class="order-right">
+            <view class="order-info">
+              <text class="text-red">￥ {{m1.getFixedMoney(item.amount)}} </text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+			<!-- 循环订单里不同商品结束 -->
+		</view>
+	</block>
+	<!-- 循环订单列表结束 -->
+</block>
+<block wx:else>
+	<view class="no-goodsList-show">亲，您还没有任何订单哦~</view>
+</block>
+</template>

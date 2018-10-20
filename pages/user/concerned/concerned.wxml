@@ -1,0 +1,16 @@
+<import src="../template/form.wxml"/>
+<wxs src="../../../utils/comm.wxs" module="mTool" />
+<!--form.wxml-->
+<view class="theme-wrapper app-theme-{{app.globalData.themeId}}">
+<view class="version">
+	<view class="version_title">版本号</view>
+	<view class="version_no">0.1.0.1018</view>
+</view>
+
+<scroll-view scroll-y class="container">
+    
+  
+</scroll-view>
+<include src="/pages/template/copyright.wxml"/>
+<include src="/pages/template/authModal.wxml"/>
+</view>

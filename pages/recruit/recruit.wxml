@@ -1,0 +1,16 @@
+
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-cont" style='padding:0 10rpx;margin:20rpx 0;'>
+    <view class="search-input-cont">
+      <input type="text" cursor="10" placeholder="请输入商品关键字" confirm-type="前往" bindinput="handleSearchInput" bindconfirm="handleSearchIng" class="search-input" />
+      <view bindtap="handleSearchTap" class="search-btn">
+        <image class="search_icon" src="{{staticResPath}}/image/mobile/search_icon.png"></image>
+      </view>
+    </view>
+    <view class="search-btn-main main-color" bindtap="handleSearchIng">搜索</view>
+  </view>
+
+  <!-- footer bar -->
+  <include src="/pages/navigator/footer.wxml" />
+</view>

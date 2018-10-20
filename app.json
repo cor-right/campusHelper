@@ -1,12 +1,18 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/user/index",
+    "pages/user/concerned/concerned",
+    "pages/user/bonuspoint",
+    "pages/recruit/recruit",
+    "pages/team/team"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "校招抱团",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
   }
 }

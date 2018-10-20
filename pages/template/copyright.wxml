@@ -1,0 +1,11 @@
+<wxs module="m1">
+  var	htmlEncode = function(e) {
+    var reg = getRegExp("\n","g");
+    return e.replace(reg, "<br />");
+	}
+</wxs>
+<view class="copyright-container" wx:if="{{app && app.globalData.isoem && app.globalData.oemconfig}}">
+  <view class="copyright-text">
+    <rich-text nodes="{{app.globalData.oemconfig.extend.mobileCopyright}}" type="text"></rich-text> 
+  </view>
+</view>

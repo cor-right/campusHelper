@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+  
+
+  <!-- footer -->
+  <include src="/pages/navigator/footer.wxml" />
+
+</view>

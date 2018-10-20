@@ -1,0 +1,26 @@
+<!-- 页脚 -->
+<block>
+  
+  <view class="footer_tab_placeholer" ></view>
+  <view class="footer_tab">
+  
+    <navigator class="commonNavigator" 
+      target="{{menuItem.target}}" 
+      app-id="{{menuItem.link_appid}}" 
+      wx:key="{{idx}}" wx:for="{{app.globalData.bottomMenus.list}}" wx:for-index="idx" wx:for-item="menuItem" 
+      data-isindexpage="{{isIndexPage}}" data-isfootertab="true" 
+      open-type="{{isIndexPage?'navigate':('/pages/index/index' == menuItem.url?'reLaunch':'redirect')}}" 
+      url="{{menuItem.url}}" 
+      style='width:{{100/app.globalData.bottomMenus.list.length}}%' 
+      bindtap="onNavTab" 
+      data-url="{{menuItem.selected?'':menuItem.url}}">
+
+      <button form-type='submit' class='commonNavButton'>
+        <image src='{{menuItem.imageSource}}'></image>
+        <text class="icon_text" style='color:{{menuItem.selected?app.globalData.bottomMenus.txtActiveColor:app.globalData.bottomMenus.txtInitColor}}'>{{menuItem.menusName}}</text>
+      </button>
+      
+    </navigator>
+  </view>
+    
+</block>
